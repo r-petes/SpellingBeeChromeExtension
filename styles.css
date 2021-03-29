@@ -1,0 +1,38 @@
+#center-letter {
+    background-color: #f8cd05;
+    height: 20px;
+	width: 20px;
+}
+
+
+#submit {
+    background-color: #f8cd05;
+    margin: 15px;
+}
+
+input[type=text] {
+    background-color: #F5F5F5;
+    border-color: #BEBEBE;
+	height: 20px;
+	width: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    float: middle;
+}
+
+body {
+    text-align: center;
+}
+
+.prompt {
+    width: 400px;
+    length: 400px
+}
+
+.answers {
+    display: none;
+}
+
+
+
+

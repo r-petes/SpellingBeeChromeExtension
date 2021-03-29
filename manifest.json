@@ -1,0 +1,12 @@
+{
+"manifest_version": 3,
+"name": "Spelling Bee Helper",
+"description": "Stuck on the NYTimes Spelling Bee?",
+"version": "1.0",
+"action": {
+  "default_popup": "helper.html"
+},
+"icons": {
+  "48": "icon48.png"
+  }
+}
