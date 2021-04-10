@@ -1,4 +1,4 @@
-function getWords() {
+document.getElementById('submit').onclick = function getWords() {
 
 const letter2 = document.getElementById('letter2').value;
 const letter3 = document.getElementById('letter3').value;
@@ -51,6 +51,14 @@ let correctWord = "";
         }
 
     document.getElementById('other-answers').innerHTML += correctWords;
+    
+    document.getElementById('letter2').value = '';
+    document.getElementById('letter3').value = '';
+    document.getElementById('letter4').value = '';
+    document.getElementById('letter5').value = '';
+    document.getElementById('letter6').value = '';
+    document.getElementById('letter7').value = '';
+    document.getElementById('center-letter').value = '';
 
     })
     .catch((err) => console.log(err))
