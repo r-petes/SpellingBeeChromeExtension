@@ -4,7 +4,7 @@
 "description": "Stuck on the NYTimes Spelling Bee?",
 "version": "1.0",
 "action": {
-  "default_popup": "helper.html"
+  "default_popup": "index.html"
 },
 "icons": {
   "48": "icon48.png"

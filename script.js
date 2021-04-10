@@ -19,47 +19,41 @@ let correctWord = "";
     fetch('dictionary.txt')
     .then((res) => res.text())
     .then((data) => {
-        let dictionary = data.split('\n');
-        dictionary.forEach(iterateWords);
+        console.log(data);
+        let words = data.split('\n');
+        console.log(words);
 
-        function iterateWords (dictionary) {
-            let letters = dictionary.split('');
-            letters.forEach(checkLetters);
-
-            function checkLetters (letters) {
-           
-                beeLetters.forEach(checkForMatch);
-
-                function checkForMatch (beeLetters) {
-                    console.log(beeLetters);
-                    console.log(letters);
-                    // if includes correct letter 
-                    if (beeLetters == letters) {
+        for (var i = 0; i < words.length; ++i) {
+            for (var j = 0; j < words[i].length; ++j) {
+                let letter = words[i][j]
+                for (var k = 0; k < beeLetters.length; ++k) {
+                    if (letter == beeLetters[k])
+                    {
                         hasCorrectLetter = 0;
-                        if (centerLetter == letters) {
+                        if (centerLetter == beeLetters[k]) {
                             hasCenterLetter = 0;
-                        }   
+                            }   
                     }
-                }
+                } 
                 if (hasCorrectLetter == 1) {
-                    let correctWord = "";
-                    return;
+                    correctWord = "";
                 }
-
                 else {
-                    correctWord += letters;
+                    correctWord += letter;
                 }
-                hasCorrectLetter = 1;
-                }
-            
-            if (letters.length >= 4 && letters.length == correctWord.length && hasCenterLetter == 0) { 
+                hasCorrectLetter = 1;  
+            }
+            if (words[i].length == correctWord.length && hasCenterLetter == 0) { 
                 correctWords.push(correctWord);
             }
             correctWord = "";
             hasCenterLetter = 1;
         }
-        let answers = document.getElementById('other-answers').innerHTML = correctWords;
+
+    document.getElementById('other-answers').innerHTML += correctWords;
+
     })
     .catch((err) => console.log(err))
-
 }
+
+
