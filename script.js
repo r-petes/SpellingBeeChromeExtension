@@ -16,7 +16,7 @@ let hasCenterLetter = 1;
 let hasCorrectLetter = 1;
 let correctWord = "";
 
-    fetch('smalldictionary.txt')
+    fetch('dictionary.txt')
     .then((res) => res.text())
     .then((data) => {
         let dictionary = data.split('\n');
