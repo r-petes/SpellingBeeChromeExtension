@@ -14,6 +14,7 @@ let beeLetters = [letter2, letter3, letter4, letter5, letter6, letter7, centerLe
 let correctWords = [];
 let hasCenterLetter = 1;
 let hasCorrectLetter = 1;
+let correctWord = "";
 
     fetch('smalldictionary.txt')
     .then((res) => res.text())
@@ -21,12 +22,10 @@ let hasCorrectLetter = 1;
         let dictionary = data.split('\n');
         dictionary.forEach(iterateWords);
 
-        hasCenterLetter = 1;
-        hasCorrectLetter = 1;
-        
         function iterateWords (dictionary) {
             let letters = dictionary.split('');
             letters.forEach(checkLetters);
+
             function checkLetters (letters) {
            
                 beeLetters.forEach(checkForMatch);
@@ -37,19 +36,30 @@ let hasCorrectLetter = 1;
                     // if includes correct letter 
                     if (beeLetters == letters) {
                         hasCorrectLetter = 0;
+                        if (centerLetter == letters) {
+                            hasCenterLetter = 0;
+                        }   
                     }
-                    // if does not include center letter 
-                    if (centerLetter == letters) {
-                        hasCenterLetter = 0;
-                    }   
                 }
+                if (hasCorrectLetter == 1) {
+                    let correctWord = "";
+                    return;
                 }
-            if (letters.length >= 4 && hasCorrectLetter == 0) {  // && hasCorectLetter ==0 && does not have CenterLetter
-                correctWords.push(dictionary);
+
+                else {
+                    correctWord += letters;
+                }
+                hasCorrectLetter = 1;
+                }
+            
+            if (letters.length >= 4 && letters.length == correctWord.length && hasCenterLetter == 0) { 
+                correctWords.push(correctWord);
             }
-                
-                console.log(correctWords);
+            correctWord = "";
+            hasCenterLetter = 1;
         }
+        let answers = document.getElementById('other-answers').innerHTML = correctWords;
     })
     .catch((err) => console.log(err))
+
 }

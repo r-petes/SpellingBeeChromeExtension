@@ -31,3 +31,4 @@ Rules for search algorithm:
 2. Can repeat letters
 3. Must use at least 4 letters
 4. Obscure or hyphenated words are not included (can I find the dictionary used?), maybe ignore this...
+
