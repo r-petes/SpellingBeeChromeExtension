@@ -19,10 +19,7 @@ let correctWord = "";
     fetch('dictionary.txt')
     .then((res) => res.text())
     .then((data) => {
-        console.log(data);
         let words = data.split('\n');
-        console.log(words);
-
         for (var i = 0; i < words.length; ++i) {
             for (var j = 0; j < words[i].length; ++j) {
                 let letter = words[i][j]
@@ -50,7 +47,18 @@ let correctWord = "";
             hasCenterLetter = 1;
         }
 
-    document.getElementById('other-answers').innerHTML += correctWords;
+        for (var i = 0; i < correctWords.length; ++i) {
+            if (correctWords[i].length == 4) {
+                document.getElementById('fourLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
+            }
+            else if (correctWords[i].length == 5) {
+                document.getElementById('fiveLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
+            }
+            else {
+                document.getElementById('sixPlusLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
+            }
+        }
+    
     
     document.getElementById('letter2').value = '';
     document.getElementById('letter3').value = '';
