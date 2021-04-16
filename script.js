@@ -1,4 +1,8 @@
-document.getElementById('submit').onclick = function getWords() {
+let four_letters = [];
+let five_letters = [];
+let six_letters = [];
+
+document.getElementById('enter').onclick = function getWords() {
 
 const letter2 = document.getElementById('letter2').value;
 const letter3 = document.getElementById('letter3').value;
@@ -11,10 +15,12 @@ const centerLetter = document.getElementById('center-letter').value;
 
 let beeLetters = [letter2, letter3, letter4, letter5, letter6, letter7, centerLetter];
 
-let correctWords = [];
 let hasCenterLetter = 1;
 let hasCorrectLetter = 1;
 let correctWord = "";
+let four_letters = [];
+let five_letters = [];
+let six_letters = [];
 
     fetch('dictionary.txt')
     .then((res) => res.text())
@@ -41,25 +47,64 @@ let correctWord = "";
                 hasCorrectLetter = 1;  
             }
             if (words[i].length == correctWord.length && hasCenterLetter == 0) { 
-                correctWords.push(correctWord);
+                if (correctWord.length == 4) {
+                    four_letters.push(correctWord);
+                }
+                else if (correctWord.length == 5) {
+                    five_letters.push(correctWord);
+                }
+                else {
+                    six_letters.push(correctWord);
+                }
             }
             correctWord = "";
             hasCenterLetter = 1;
         }
 
-        for (var i = 0; i < correctWords.length; ++i) {
-            if (correctWords[i].length == 4) {
-                document.getElementById('fourLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
-            }
-            else if (correctWords[i].length == 5) {
-                document.getElementById('fiveLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
-            }
-            else {
-                document.getElementById('sixPlusLetters').innerHTML += `<li> ${correctWords[i]} </li>`;
-            }
-        }
-    
-    
+    window.localStorage.setItem('4letterword',JSON.stringify(four_letters));
+    window.localStorage.setItem('5letterword',JSON.stringify(five_letters));
+    window.localStorage.setItem('6letterword',JSON.stringify(six_letters));
+
+    })
+    .catch((err) => console.log(err))
+
+}
+
+document.getElementById('getFourLettered').onclick = function getFourLettered() {
+    document.getElementById('fiveLetters').innerHTML = ``;
+    document.getElementById('sixPlusLetters').innerHTML = ``;
+
+    four_letters = JSON.parse(window.localStorage.getItem('4letterword'));
+
+    for (var m in four_letters) {
+        document.getElementById('fourLetters').innerHTML += `<li> ${four_letters[m]} </li>`;
+    }
+}
+
+document.getElementById('getFiveLettered').onclick = function getFourLettered() {
+    document.getElementById('fourLetters').innerHTML = ``;
+    document.getElementById('sixPlusLetters').innerHTML = ``;
+
+    five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
+
+    for (var m = 0; m < five_letters.length; ++m) {
+        document.getElementById('fiveLetters').innerHTML += `<li> ${five_letters[m]} </li>`;
+    }
+}
+
+document.getElementById('getSixLettered').onclick = function getFourLettered() {
+    document.getElementById('fourLetters').innerHTML = ``;
+    document.getElementById('fiveLetters').innerHTML = ``;
+
+    six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
+    for (var m = 0; m < six_letters.length; ++m) {
+        document.getElementById('sixPlusLetters').innerHTML += `<li> ${six_letters[m]} </li>`;
+    }
+}
+
+document.getElementById('reset').onclick = function clearData() {
+    window.localStorage.clear();
+
     document.getElementById('letter2').value = '';
     document.getElementById('letter3').value = '';
     document.getElementById('letter4').value = '';
@@ -67,9 +112,4 @@ let correctWord = "";
     document.getElementById('letter6').value = '';
     document.getElementById('letter7').value = '';
     document.getElementById('center-letter').value = '';
-
-    })
-    .catch((err) => console.log(err))
 }
-
-

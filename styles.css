@@ -5,7 +5,7 @@
 	/*  TO DO: indicate that this is the center letter, with shape or label   */
 }
 
-#submit {
+.button {
     background-color: #f8cd05;
     margin: 15px;
 }
