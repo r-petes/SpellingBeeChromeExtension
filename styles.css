@@ -1,69 +1,65 @@
-*
-{
-  margin:0;
-  padding:0;
+* {
+	margin: 0;
+	padding: 0;
 }
 
 #center-letter {
-    background-color: #fff852;
-    height: 2em;
+	background-color: #fff852;
+	height: 2em;
 	width: 2em;
-    font-size: 20px;
+	font-size: 20px;
 }
 
 #image {
-    margin: 20px;
+	margin: 20px;
 }
 
 #enter {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 #title {
-    margin-bottom: 25px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-size: 25px;
+	margin-bottom: 25px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 25px;
 }
 
 .button {
 	margin-top: 10px;
 	margin-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
 	color: black;
-    border-color: #BEBEBE;
+	border-color: #BEBEBE;
 	border-radius: 2.5em;
 	background-color: #fff852;
-    max-width: 20em;
+	max-width: 20em;
 	max-height: auto;
 	min-height: 2.5em;
-
 }
 
 body {
-    text-align: center;
-    width: 400px;
-    align-self: center;
-    background-color: #F5F5F5;
-    padding-bottom: 20px;
+	text-align: center;
+	width: 400px;
+	align-self: center;
+	background-color: #F5F5F5;
+	padding-bottom: 20px;
 }
 
 input[type=text] {
-    background-color: #F5F5F5;
-    border-color: #BEBEBE;
+	background-color: #F5F5F5;
+	border-color: #BEBEBE;
 	height: 2em;
 	width: 2em;
-    text-align: center;
-    text-transform: uppercase;
-    float: middle;
+	text-align: center;
+	text-transform: uppercase;
+	float: middle;
 }
 
- li {
-    list-style-image: url(bulletbee.png);
-    list-style-position: inside;
-    }
-
-
+li {
+	list-style-image: url(bulletbee.png);
+	list-style-position: inside;
+}
 
 
