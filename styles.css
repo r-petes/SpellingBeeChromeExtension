@@ -31,6 +31,10 @@ body {
     height:fit-content;
 }
 
+ li {
+    list-style-image: url(bulletbee.png);
+    list-style-position: inside;
+    }
 
 
 

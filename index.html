@@ -14,39 +14,29 @@
             <h1>
                Enter today's letters!
             </h1>
-            <input type="text" id="letter2" maxlength="1" value="">
-            <input type="text" id="letter3" maxlength="1" value="">
-            <input type="text" id="letter4" maxlength="1" value="">
+            <input type="text" id="letter2" maxlength="1" value="" onkeyup="autoTab(letter2,'letter3')">
+            <input type="text" id="letter3" maxlength="1" value="" onkeyup="autoTab(letter3,'letter4')">
+            <input type="text" id="letter4" maxlength="1" value="" onkeyup="autoTab(letter4,'letter5')">
             <input class="letter" type="text" id="center-letter" maxlength="1" value="">
-            <input type="text" id="letter5" maxlength="1" value="">
-            <input type="text" id="letter6" maxlength="1" value="">
-            <input type="text" id="letter7" maxlength="1" value="">
+            <input type="text" id="letter5" maxlength="1" value="" onkeyup="autoTab(letter5,'letter6')">
+            <input type="text" id="letter6" maxlength="1" value="" onkeyup="autoTab(letter6,'letter7')">
+            <input type="text" id="letter7" maxlength="1" value="" onkeyup="autoTab(letter7,'center-letter')">
             <div>
                <button class="button" id="reset">Reset</button>
             </div>
          </div>
       </div>
-      <div class="row align-items-start justify-content-center answers">
-         <div>
             <button class="button" id="getRandom">Show me a Random Answer</button>
             <h4 id="randomWord"></h4>
-         </div>
-         <div class="col-auto">
+
             <button class="submit button" id="getFourLettered">Show Me All Four-lettered Words</button>
             <ul id="fourLetters"></ul>
-            </ul>
-         </div>
-         <div class="col-auto">     
+
             <button class="submit button" id="getFiveLettered">Show Me All Five-lettered Words</button>
             <ul id="fiveLetters"></ul>
-            </ul>
-         </div>
-         <div class="col-auto">
+
             <button class="submit button" id="getSixLettered">Show Me All 6+ Lettered Words</button>
             <ul id="sixPlusLetters"></ul>
-            </ul>
-         </div>
-      </div>
       </div>
       <!-- JS script -->
       <script src="script.js"></script>
