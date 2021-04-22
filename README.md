@@ -1,4 +1,4 @@
-![Bee Logo](icon48.png =25x)
+![Bee Logo](icon48.png)
 
 # Spelling Bee Helper
 
