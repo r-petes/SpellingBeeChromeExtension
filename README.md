@@ -1,10 +1,8 @@
-![Bee Logo](icon48.png)
+![Bee Logo](icon48.png =25x)
 
 # Spelling Bee Helper
 
-#### *Ever been hopelessly stuck on the New York Times' Spelling Bee puzzle? Look no further, with multiple options for hints and answers to the daily puzzle, this app will help you achieve "Genius" level in no time. 
-
-
+###### *Ever been hopelessly stuck on the New York Times' Spelling Bee puzzle? Look no further, with multiple options for hints and answers to the daily puzzle, this app will help you achieve "Genius" level in no time.*
 
 ### *How To Use As Chrome Extension*
 
