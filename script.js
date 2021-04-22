@@ -1,8 +1,3 @@
-let four_letters = [];
-let five_letters = [];
-let six_letters = [];
-
-
 function autoTab(field,nextFieldID){
     if(field.value.length >= field.maxLength){
       document.getElementById(nextFieldID).focus();
@@ -33,10 +28,7 @@ function getWords() {
 
     let beeLetters = [letter2, letter3, letter4, letter5, letter6, letter7, centerLetter];
 
-    if(beeLetters[0] != "") {
-        window.localStorage.setItem('beeletters',JSON.stringify(beeLetters));
-    }
-
+    window.localStorage.setItem('beeletters',JSON.stringify(beeLetters));
 
     let hasCenterLetter = 1;
     let hasCorrectLetter = 1;
@@ -93,59 +85,55 @@ function getWords() {
 
 }
 
-function fill4HTML() {
+function parseJSON() {
     four_letters = JSON.parse(window.localStorage.getItem('4letterword'));
+    console.log(four_letters);
+    five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
+    six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
+}
+
+document.getElementById('getRandom').onclick = function getRandom() {
+    getWords();
+    parseJSON();
+
+     document.getElementById('randomWord').innerHTML = " ";
+     allWords = four_letters.concat(five_letters, six_letters);
+     let randomElement = allWords[Math.floor(Math.random() * allWords.length)];
+     if(randomElement == undefined) {
+         return;
+     }
+     document.getElementById('randomWord').innerHTML += `<p>${randomElement} </p>`;
+}
+
+document.getElementById('getFourLettered').onclick = function getFourLettered() {
+    getWords();
+    parseJSON();
+
+    document.getElementById('fourLetters').innerHTML = " ";
     for (var m in four_letters) {
         document.getElementById('fourLetters').innerHTML += `<li> ${four_letters[m]} </li>`;
     }
 }
 
-function fill5HTML() {
-    five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
+document.getElementById('getFiveLettered').onclick = function getFiveLettered() {
+    getWords();
+    parseJSON();
+
+    document.getElementById('fiveLetters').innerHTML = " ";
+    console.log(five_letters);
     for (var m = 0; m < five_letters.length; ++m) {
         document.getElementById('fiveLetters').innerHTML += `<li> ${five_letters[m]} </li>`;
     }
 }
 
-function fill6HTML() {
-    six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
+document.getElementById('getSixLettered').onclick = function getSixLettered() {
+    getWords();
+    parseJSON();
+
+    document.getElementById('sixPlusLetters').innerHTML = " ";
     for (var m = 0; m < six_letters.length; ++m) {
         document.getElementById('sixPlusLetters').innerHTML += `<li> ${six_letters[m]} </li>`;
     }
-}
-
-document.getElementById('getRandom').onclick = function getRandom() {
-    getWords();
-    four_letters = JSON.parse(window.localStorage.getItem('4letterword'));
-    five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
-    six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
-
-    document.getElementById('randomWord').innerHTML = " ";
-    allWords = four_letters.concat(five_letters, six_letters);
-    let randomElement = allWords[Math.floor(Math.random() * allWords.length)];
-    if(randomElement == undefined) {
-        return;
-    }
-    document.getElementById('randomWord').innerHTML += `<p>${randomElement} </p>`;
-
-}
-
-document.getElementById('getFourLettered').onclick = function getFourLettered() {
-    getWords();
-    document.getElementById('fourLetters').innerHTML = " ";
-    fill4HTML();
-}
-
-document.getElementById('getFiveLettered').onclick = function getFiveLettered() {
-    getWords();
-    document.getElementById('fiveLetters').innerHTML = " ";
-    fill5HTML();
-}
-
-document.getElementById('getSixLettered').onclick = function getSixLettered() {
-    getWords();
-    document.getElementById('sixPlusLetters').innerHTML = " ";
-    fill6HTML();
 }
 
 document.getElementById('reset').onclick = function clearData() {
