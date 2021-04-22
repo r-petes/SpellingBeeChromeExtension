@@ -11,16 +11,20 @@
     font-size: 20px;
 }
 
+#image {
+    margin: 20px;
+}
+
+#enter {
+    margin-top: 20px;
+}
+
 #title {
     margin-bottom: 25px;
     padding-bottom: 10px;
     padding-top: 10px;
     font-size: 25px;
     background-color: darkgrey;
-}
-
-#reset {
-    margin-top: 20px;
 }
 
 .button {
@@ -40,6 +44,14 @@
 
 }
 
+body {
+    text-align: center;
+    width: 400px;
+    align-self: center;
+    background-color: #F5F5F5;
+    padding-bottom: 20px;
+}
+
 input[type=text] {
     background-color: #F5F5F5;
     border-color: #BEBEBE;
@@ -48,14 +60,6 @@ input[type=text] {
     text-align: center;
     text-transform: uppercase;
     float: middle;
-}
-
-body {
-    text-align: center;
-    width: 400px;
-    align-self: center;
-    background-color: #F5F5F5;
-    padding-bottom: 20px;
 }
 
  li {

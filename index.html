@@ -10,13 +10,16 @@
                ENTER TODAY'S NYTIMES SPELLING BEE LETTERS
             </h1>
             <div class="question"></div>
-            <input type="text" id="letter2" maxlength="1" value="" onkeyup="autoTab(letter2,'letter3')">
-            <input type="text" id="letter3" maxlength="1" value="" onkeyup="autoTab(letter3,'letter4')">
-            <input type="text" id="letter4" maxlength="1" value="" onkeyup="autoTab(letter4,'letter5')">
+            <input type="text" id="letter2" maxlength="1" value="">
+            <input type="text" id="letter3" maxlength="1" value="">
+            <input type="text" id="letter4" maxlength="1" value="">
             <input class="letter" type="text" id="center-letter" maxlength="1" value="">
-            <input type="text" id="letter5" maxlength="1" value="" onkeyup="autoTab(letter5,'letter6')">
-            <input type="text" id="letter6" maxlength="1" value="" onkeyup="autoTab(letter6,'letter7')">
-            <input type="text" id="letter7" maxlength="1" value="" onkeyup="autoTab(letter7,'center-letter')">
+            <input type="text" id="letter5" maxlength="1" value="">
+            <input type="text" id="letter6" maxlength="1" value="">
+            <input type="text" id="letter7" maxlength="1" value="">
+            <div>
+               <button class="button" id="enter">Enter</button>
+            </div>
             <div>
                <button class="button" id="reset">Reset</button>
             </div>
@@ -32,6 +35,7 @@
 
             <button class="submit button" id="getSixLettered">Show Me All 6+ Lettered Words</button>
             <ul id="sixPlusLetters"></ul>
+            <img src="bulletbee.png" alt="small bee logo" id="image">
       <!-- JS script -->
       <script src="script.js"></script>
    </body>

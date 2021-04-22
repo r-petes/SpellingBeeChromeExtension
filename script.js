@@ -1,10 +1,9 @@
-function autoTab(field,nextFieldID){
-    if(field.value.length >= field.maxLength){
-      document.getElementById(nextFieldID).focus();
-    }
-  }
+let four_letters = [];
+let five_letters = [];
+let six_letters = [];
 
 document.addEventListener("DOMContentLoaded", function persist() {
+      
     let beeLetters = JSON.parse(window.localStorage.getItem('beeletters'));
 
     document.getElementById('letter2').value = beeLetters[0];
@@ -14,9 +13,10 @@ document.addEventListener("DOMContentLoaded", function persist() {
     document.getElementById('letter6').value = beeLetters[4];
     document.getElementById('letter7').value = beeLetters[5];
     const centerLetter = document.getElementById('center-letter').value = beeLetters[6];
+
 })
 
-function getWords() {
+document.getElementById('enter').onclick = function getWords() {
 
     const letter2 = document.getElementById('letter2').value;
     const letter3 = document.getElementById('letter3').value;
@@ -33,9 +33,9 @@ function getWords() {
     let hasCenterLetter = 1;
     let hasCorrectLetter = 1;
     let correctWord = "";
-    let four_letters = [];
-    let five_letters = [];
-    let six_letters = [];
+    four_letters = [];
+    five_letters = [];
+    six_letters = [];
 
         fetch('dictionary.txt')
         .then((res) => res.text())
@@ -93,7 +93,6 @@ function parseJSON() {
 }
 
 document.getElementById('getRandom').onclick = function getRandom() {
-    getWords();
     parseJSON();
 
      document.getElementById('randomWord').innerHTML = " ";
@@ -106,7 +105,6 @@ document.getElementById('getRandom').onclick = function getRandom() {
 }
 
 document.getElementById('getFourLettered').onclick = function getFourLettered() {
-    getWords();
     parseJSON();
 
     document.getElementById('fourLetters').innerHTML = " ";
@@ -116,7 +114,6 @@ document.getElementById('getFourLettered').onclick = function getFourLettered() 
 }
 
 document.getElementById('getFiveLettered').onclick = function getFiveLettered() {
-    getWords();
     parseJSON();
 
     document.getElementById('fiveLetters').innerHTML = " ";
@@ -127,7 +124,6 @@ document.getElementById('getFiveLettered').onclick = function getFiveLettered() 
 }
 
 document.getElementById('getSixLettered').onclick = function getSixLettered() {
-    getWords();
     parseJSON();
 
     document.getElementById('sixPlusLetters').innerHTML = " ";
