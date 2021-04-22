@@ -9,4 +9,9 @@
 #### 1. Download ZIP files to your device and un-zip. 
 #### 2. From chrome://extensions/ select "Load Unpacked" and select entire Spelling Bee folder.
 
+### Demo:
+
+### Once downloaded, pin and open the gif in your Chrome toolbar: 
+
+![How to open extension](https://media.giphy.com/media/T60vCRVHKpR5WyjBGC/giphy.gif)
 
