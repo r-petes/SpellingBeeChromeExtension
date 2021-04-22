@@ -22,15 +22,15 @@
             <input type="text" id="letter6" maxlength="1" value="">
             <input type="text" id="letter7" maxlength="1" value="">
             <div>
-               <button class="button" id="enter">Enter</button>
-            </div>
-            <div>
                <button class="button" id="reset">Reset</button>
             </div>
          </div>
       </div>
       <div class="row align-items-start justify-content-center answers">
-         <h1>Possible answers:</h1>
+         <div>
+            <button class="button" id="getRandom">Show me a Random Answer</button>
+            <h4 id="randomWord"></h4>
+         </div>
          <div class="col-auto">
             <button class="submit button" id="getFourLettered">Show Me All Four-lettered Words</button>
             <ul id="fourLetters"></ul>
