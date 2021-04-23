@@ -1,4 +1,0 @@
-coat
-car
-cart
-train

@@ -1,7 +1,9 @@
+// Initialize arrays of four, five and six letter words
 let four_letters = [];
 let five_letters = [];
 let six_letters = [];
 
+// Ensure that when the etension is closed and reopened, the letters persist
 document.addEventListener("DOMContentLoaded", function persist() {
 
 	let beeLetters = JSON.parse(window.localStorage.getItem('beeletters'));
@@ -16,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function persist() {
 
 })
 
+// Check dictionary text file for possible words and sort by word length
 document.getElementById('enter').onclick = function getWords() {
 
 	const letter2 = document.getElementById('letter2').value;
@@ -71,7 +74,8 @@ document.getElementById('enter').onclick = function getWords() {
 				correctWord = "";
 				hasCenterLetter = 1;
 			}
-
+			
+			// Add possible words to local storage by word length
 			window.localStorage.setItem('4letterword', JSON.stringify(four_letters));
 			window.localStorage.setItem('5letterword', JSON.stringify(five_letters));
 			window.localStorage.setItem('6letterword', JSON.stringify(six_letters));
@@ -81,16 +85,16 @@ document.getElementById('enter').onclick = function getWords() {
 
 }
 
+// Retrieve current four, five and six lettered word arrays from storage
 function parseJSON() {
 	four_letters = JSON.parse(window.localStorage.getItem('4letterword'));
-	console.log(four_letters);
 	five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
 	six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
 }
 
+// Populate HTML with one random word
 document.getElementById('getRandom').onclick = function getRandom() {
 	parseJSON();
-
 	document.getElementById('randomWord').innerHTML = " ";
 	allWords = four_letters.concat(five_letters, six_letters);
 	let randomElement = allWords[Math.floor(Math.random() * allWords.length)];
@@ -100,18 +104,18 @@ document.getElementById('getRandom').onclick = function getRandom() {
 	document.getElementById('randomWord').innerHTML += `<p>${randomElement} </p>`;
 }
 
+// Populate HTML with all possible four-lettered words
 document.getElementById('getFourLettered').onclick = function getFourLettered() {
 	parseJSON();
-
 	document.getElementById('fourLetters').innerHTML = " ";
 	for (var m in four_letters) {
 		document.getElementById('fourLetters').innerHTML += `<li> ${four_letters[m]} </li>`;
 	}
 }
 
+// Populate HTML with all possible five-lettered words
 document.getElementById('getFiveLettered').onclick = function getFiveLettered() {
 	parseJSON();
-
 	document.getElementById('fiveLetters').innerHTML = " ";
 	console.log(five_letters);
 	for (var m = 0; m < five_letters.length; ++m) {
@@ -119,15 +123,16 @@ document.getElementById('getFiveLettered').onclick = function getFiveLettered() 
 	}
 }
 
+// Populate HTML with all possible six-lettered words
 document.getElementById('getSixLettered').onclick = function getSixLettered() {
 	parseJSON();
-
 	document.getElementById('sixPlusLetters').innerHTML = " ";
 	for (var m = 0; m < six_letters.length; ++m) {
 		document.getElementById('sixPlusLetters').innerHTML += `<li> ${six_letters[m]} </li>`;
 	}
 }
 
+// Reset local storage with reset button
 document.getElementById('reset').onclick = function clearData() {
 
 	window.localStorage.clear();
