@@ -1,4 +1,4 @@
-![Bee Logo](bulletbee.png)
+![Bee Logo](images/bulletbee.png)
 
 # Spelling Bee Helper
 

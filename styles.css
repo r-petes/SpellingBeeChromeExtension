@@ -58,7 +58,7 @@ input[type=text] {
 }
 
 li {
-	list-style-image: url(bulletbee.png);
+	list-style-image: url(images/bulletbee.png);
 	list-style-position: inside;
 }
 
