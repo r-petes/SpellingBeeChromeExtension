@@ -1,10 +1,41 @@
-// Initialize arrays of four, five and six letter words
-let four_letters = [];
-let five_letters = [];
-let six_letters = [];
-
 // Ensure that when the etension is closed and reopened, the letters persist
-document.addEventListener("DOMContentLoaded", function persist() {
+document.addEventListener("DOMContentLoaded", () => {
+	persist();
+})
+
+// Check dictionary text file for possible words and sort by word length
+document.getElementById('enter').onclick = () => {
+	getWords();
+}
+
+// Populate HTML with one random word
+document.getElementById('getRandom').onclick = () => {
+	getRandom();
+}
+
+// Populate HTML with all possible four-lettered words
+document.getElementById('getFourLettered').onclick = () => {
+	getFourLettered();
+}
+
+// Populate HTML with all possible five-lettered words
+document.getElementById('getFiveLettered').onclick = () => {
+	getFiveLettered();
+}
+
+// Populate HTML with all possible six-lettered words
+document.getElementById('getSixLettered').onclick = () => {
+	getSixLettered();
+}
+
+// Reset local storage with reset button
+document.getElementById('reset').onclick = () => {
+	clearData();
+}
+
+
+
+function persist() {
 
 	let beeLetters = JSON.parse(window.localStorage.getItem('beeletters'));
 
@@ -16,10 +47,10 @@ document.addEventListener("DOMContentLoaded", function persist() {
 	document.getElementById('letter7').value = beeLetters[5];
 	const centerLetter = document.getElementById('center-letter').value = beeLetters[6];
 
-})
+}
 
-// Check dictionary text file for possible words and sort by word length
-document.getElementById('enter').onclick = function getWords() {
+
+function getWords() {
 
 	const letter2 = document.getElementById('letter2').value;
 	const letter3 = document.getElementById('letter3').value;
@@ -87,13 +118,16 @@ document.getElementById('enter').onclick = function getWords() {
 
 // Retrieve current four, five and six lettered word arrays from storage
 function parseJSON() {
+	// Initialize arrays of four, five and six letter words
+	let four_letters = [];
+	let five_letters = [];
+	let six_letters = [];
 	four_letters = JSON.parse(window.localStorage.getItem('4letterword'));
 	five_letters = JSON.parse(window.localStorage.getItem('5letterword'));
 	six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
 }
 
-// Populate HTML with one random word
-document.getElementById('getRandom').onclick = function getRandom() {
+function getRandom() {
 	parseJSON();
 	document.getElementById('randomWord').innerHTML = " ";
 	allWords = four_letters.concat(five_letters, six_letters);
@@ -104,8 +138,7 @@ document.getElementById('getRandom').onclick = function getRandom() {
 	document.getElementById('randomWord').innerHTML += `<p>${randomElement} </p>`;
 }
 
-// Populate HTML with all possible four-lettered words
-document.getElementById('getFourLettered').onclick = function getFourLettered() {
+function getFourLettered() {
 	parseJSON();
 	document.getElementById('fourLetters').innerHTML = " ";
 	for (var m in four_letters) {
@@ -113,8 +146,7 @@ document.getElementById('getFourLettered').onclick = function getFourLettered() 
 	}
 }
 
-// Populate HTML with all possible five-lettered words
-document.getElementById('getFiveLettered').onclick = function getFiveLettered() {
+function getFiveLettered() {
 	parseJSON();
 	document.getElementById('fiveLetters').innerHTML = " ";
 	console.log(five_letters);
@@ -123,8 +155,7 @@ document.getElementById('getFiveLettered').onclick = function getFiveLettered() 
 	}
 }
 
-// Populate HTML with all possible six-lettered words
-document.getElementById('getSixLettered').onclick = function getSixLettered() {
+function getSixLettered() {
 	parseJSON();
 	document.getElementById('sixPlusLetters').innerHTML = " ";
 	for (var m = 0; m < six_letters.length; ++m) {
@@ -132,10 +163,13 @@ document.getElementById('getSixLettered').onclick = function getSixLettered() {
 	}
 }
 
-// Reset local storage with reset button
-document.getElementById('reset').onclick = function clearData() {
+function clearData() {
 
 	window.localStorage.clear();
+
+	four_letters = [];
+	five_letters = [];
+	six_letters = [];
 
 	document.getElementById('randomWord').innerHTML = ``;
 
