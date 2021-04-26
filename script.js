@@ -1,41 +1,41 @@
 // Ensure that when the etension is closed and reopened, the letters persist
 document.addEventListener("DOMContentLoaded", () => {
-	persist();
+	repopulateStoredLettersOnRefresh();
 })
 
 // Check dictionary text file for possible words and sort by word length
 document.getElementById('enter').onclick = () => {
-	getWords();
+	identifyPossibleWords();
 }
 
 // Populate HTML with one random word
 document.getElementById('getRandom').onclick = () => {
-	getRandom();
+	getRandomWord();
 }
 
 // Populate HTML with all possible four-lettered words
 document.getElementById('getFourLettered').onclick = () => {
-	getFourLettered();
+	getFourLetteredWords();
 }
 
 // Populate HTML with all possible five-lettered words
 document.getElementById('getFiveLettered').onclick = () => {
-	getFiveLettered();
+	getFiveLetteredWords();
 }
 
 // Populate HTML with all possible six-lettered words
 document.getElementById('getSixLettered').onclick = () => {
-	getSixLettered();
+	getSixLetteredWords();
 }
 
 // Reset local storage with reset button
 document.getElementById('reset').onclick = () => {
-	clearData();
+	resetData();
 }
 
 
 
-function persist() {
+function repopulateStoredLettersOnRefresh() {
 
 	let beeLetters = JSON.parse(window.localStorage.getItem('beeletters'));
 
@@ -50,7 +50,7 @@ function persist() {
 }
 
 
-function getWords() {
+function identifyPossibleWords() {
 
 	const letter2 = document.getElementById('letter2').value;
 	const letter3 = document.getElementById('letter3').value;
@@ -127,7 +127,7 @@ function parseJSON() {
 	six_letters = JSON.parse(window.localStorage.getItem('6letterword'));
 }
 
-function getRandom() {
+function getRandomWord() {
 	parseJSON();
 	document.getElementById('randomWord').innerHTML = " ";
 	allWords = four_letters.concat(five_letters, six_letters);
@@ -138,7 +138,7 @@ function getRandom() {
 	document.getElementById('randomWord').innerHTML += `<p>${randomElement} </p>`;
 }
 
-function getFourLettered() {
+function getFourLetteredWords() {
 	parseJSON();
 	document.getElementById('fourLetters').innerHTML = " ";
 	for (var m in four_letters) {
@@ -146,7 +146,7 @@ function getFourLettered() {
 	}
 }
 
-function getFiveLettered() {
+function getFiveLetteredWords() {
 	parseJSON();
 	document.getElementById('fiveLetters').innerHTML = " ";
 	console.log(five_letters);
@@ -155,7 +155,7 @@ function getFiveLettered() {
 	}
 }
 
-function getSixLettered() {
+function getSixLetteredWords() {
 	parseJSON();
 	document.getElementById('sixPlusLetters').innerHTML = " ";
 	for (var m = 0; m < six_letters.length; ++m) {
@@ -163,7 +163,7 @@ function getSixLettered() {
 	}
 }
 
-function clearData() {
+function resetData() {
 
 	window.localStorage.clear();
 
