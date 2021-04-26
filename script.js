@@ -78,10 +78,10 @@ function identifyPossibleWords() {
     .then((res) => res.text())
     .then((data) => {
       let words = data.split("\n");
-      for (var i = 0; i < words.length; ++i) {
-        for (var j = 0; j < words[i].length; ++j) {
+      for (let i = 0; i < words.length; ++i) {
+        for (let j = 0; j < words[i].length; ++j) {
           let letter = words[i][j];
-          for (var k = 0; k < beeLetters.length; ++k) {
+          for (let k = 0; k < beeLetters.length; ++k) {
             if (letter == beeLetters[k]) {
               hasCorrectLetter = 0;
               if (centerLetter == beeLetters[k]) {
@@ -142,7 +142,7 @@ function getRandomWord() {
 function getFourLetteredWords() {
   parseJSON();
   document.getElementById("fourLetters").innerHTML = " ";
-  for (var m in four_letters) {
+  for (let m in four_letters) {
     document.getElementById(
       "fourLetters"
     ).innerHTML += `<li> ${four_letters[m]} </li>`;
@@ -153,7 +153,7 @@ function getFiveLetteredWords() {
   parseJSON();
   document.getElementById("fiveLetters").innerHTML = " ";
   console.log(five_letters);
-  for (var m = 0; m < five_letters.length; ++m) {
+  for (let m = 0; m < five_letters.length; ++m) {
     document.getElementById(
       "fiveLetters"
     ).innerHTML += `<li> ${five_letters[m]} </li>`;
@@ -163,7 +163,7 @@ function getFiveLetteredWords() {
 function getSixLetteredWords() {
   parseJSON();
   document.getElementById("sixPlusLetters").innerHTML = " ";
-  for (var m = 0; m < six_letters.length; ++m) {
+  for (let m = 0; m < six_letters.length; ++m) {
     document.getElementById(
       "sixPlusLetters"
     ).innerHTML += `<li> ${six_letters[m]} </li>`;
